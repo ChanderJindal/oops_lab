@@ -1,0 +1,45 @@
+#include "bits/stdc++.h"
+
+using namespace std;
+
+class one;
+class two;
+
+class one {
+   char a;
+    public:
+        friend char largest(one a, two b);
+        void input();
+};
+
+void one::input(){
+    cout << "Enter first value : ";
+    cin >> a;
+}
+
+class two {
+    char b;
+    public:
+        friend char largest(one a, two b);
+        void input();
+};
+
+void two::input(){
+    cout << "Enter second value : ";
+    cin >> b;
+}
+
+char largest(one a, two b){
+    return (a.a > b.b) ? a.a : b.b ;
+}
+
+int main()
+{
+    one a;
+    a.input();
+    two b;
+    b.input();
+    cout<<"larger value is "<<largest(a,b)<<endl;
+
+    return 0;
+}
