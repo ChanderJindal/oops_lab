@@ -1,2 +1,2 @@
 # oops_lab
-oops code lie here
+oops code for IPU students lie here
