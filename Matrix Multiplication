@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+class matrix{
+public:
+int n, m;
+int arr[100][100];
+void get_size(){
+cout<<"Enter The size of Matrix (less than 100)"<<endl;
+cin>>n>>m;
+}
+void give_val(){
+for(int i =0;i<n;i++)
+for(int j = 0; j <m ;j++)
+arr[i][j] = rand()%200;
+}
+void display(){
+for(int i =0;i<n;i++){
+for(int j = 0; j <m ;j++)
+cout<<arr[i][j]<<" ";
+cout<<endl;
+}
+cout<<"_________________________________"<<endl;
+}
+};
+void matrix_mul(matrix val_1 , matrix val_2){
+if(val_1.m != val_2.n){
+cout<< "Matrices Can't be Multiplied"<<endl;
+return;
+}
+int last[val_1.n][val_2.m];
+for(int i=0;i<val_1.n;i++){
+for(int j=0;j<val_2.m;j++){
+last[i][j] = 0;
+for(int k=0;k<val_2.m;k++){
+last[i][j] += val_1.arr[i][k]*val_2.arr[k][j];
+}
+}
+}
+for(int i =0;i<val_1.n;i++){
+for(int j = 0;j<val_2.m;j++){
+cout<<last[i][j]<<" ";
+}
+cout<<endl;
+}
+return ;
+}
+int main(){
+matrix a,b;
+a.get_size();
+b.get_size();
+a.give_val();
+b.give_val();
+a.display();
+b.display();
+matrix_mul(a,b);
+return 0;
+}
