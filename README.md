@@ -1,2 +1,3 @@
 # oops_lab
-oops code for IPU students lie here
+Write a program to find the greatest of two given numbers in two different classes using
+friend function
