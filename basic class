@@ -1,0 +1,123 @@
+#include <bits/stdc++.h>
+#define u unsigned
+#define ll long long
+#define pi 3.141592653589793238
+using namespace std;
+/*
+a.  Overload + operator to carry out the concatenation of strings.
+b.	Overload = operator to carry out string copy.
+c.	Overload <= operator to carry out the comparison of strings.
+d.	Function to display the length of string.
+e.	Function tolower() to convert upper case to lower case.
+f.	Function toupper() to convert lower case letters to upper case
+*/
+class sentense{
+private:
+    string s1;
+public:
+    void display(){
+    cout<<" _______________"<<endl;
+    cout<<s1<<endl;
+    cout<<" _______________"<<endl;
+    }
+    void length(){
+    cout<<s1.length()<<endl;
+    }
+    void tolower(){
+    for(int i = 0;i<s1.length();i++)
+        if(s1[i] >= 'A' && s1[i] <= 'Z')
+            s1[i] = s1[i] - 'A' + 'a';
+    }
+    void toupper(){
+    for(int i = 0;i<s1.length();i++)
+        if(s1[i] >= 'a' && s1[i] <= 'z')
+            s1[i] = s1[i] + 'A' - 'a';
+    }
+    sentense operator + (string s){
+    s1 += s;
+    }
+sentense operator = (string s){
+    s1 = s;
+    }
+    sentense operator <= (string s){
+        cout<<"Original String has a Length of "<<s1.length()<<" and the given string has length of "<<s.length()<<endl;
+        int flag = 0;
+        for(int i = 0 ;i<min(s.length(),s1.length()) ; i++){
+            if(s[i] < s1[i]){
+            flag = 1;
+            break;
+            }else if(s[i]>s1[i]){
+                flag = 2;
+                break;
+                }
+        }
+        if(flag == 0){
+        if(s.length() < s1.length())
+                flag = 1;
+    else if(s1.length() > s.length())
+        flag =2;
+        }
+    if(flag == 1){
+        cout<<"Given String lexicographically comes before Original String"<<endl;
+    }else if(flag ==2){
+                cout<<"Original String lexicographically comes before Given String"<<endl;
+    }else{
+    cout<<"Both Strings are identical"<<endl;
+    }
+    }
+};
+
+string random_string_generator(int max_size){
+int string_size = rand()%max_size;
+string ans = "";
+//cout<<string_size<<" size"<<endl;
+for(int i = 0; i< string_size;i++){
+ //   char  crand()%127;
+ int temp = rand()%127;
+ if(temp == 10)
+    temp++;
+    ans +=  char(temp);
+}
+return ans;
+}
+
+int main(){
+/*
+    // random try
+    srand(time(0));
+    for(int i =0;i<10;i++)
+    cout<<"On the "<<i<<"th try we get -> "<<random_string_generator(rand()%100)<<endl;
+*/
+    /*
+  //  No Random
+sentense s ;
+s = "WERTY45678bhui";
+s.display();
+s + "wertyuiBHJIO034567";
+s.display();
+s <= "4569OJNBFR678ijnbv";
+s.tolower();
+s.display();
+s = "THJM45678IJHBcghj67j";
+s.display();
+s.toupper();
+s.display();
+*/
+/*
+// 100% Random
+srand(time(0));
+sentense s ;
+s = random_string_generator(rand()%100);
+s.display();
+s + random_string_generator(rand()%100);
+s.display();
+s <= random_string_generator(rand()%100);
+s.tolower();
+s.display();
+s = random_string_generator(rand()%100);
+s.display();
+s.toupper();
+s.display();
+*/
+return 0;
+}
