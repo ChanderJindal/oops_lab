@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#define u unsigned
+#define ll long long
+#define pi 3.141592653589793238
+using namespace std;
+
+void area(float radius){
+cout<<"Area of Circle of Radius :"<<radius<<" is :"<<pi*pow(radius,2)<<endl;
+return;
+}
+void area(float l , float b){
+cout<<"Area of Rectangle of Length x Breadth is  :"<<l<<" x "<<b<<" is :"<<(double)l*b<<endl;
+return;
+}
+void area(double l , double h){
+cout<<"Area of Triangle of Length :"<<l<<" and Height "<<h<<" is :"<<(double)l*h*(0.5)<<endl;
+return;
+}
+int main(){
+
+     area((double)rand(),(double)rand());
+     area((float)rand(),(float)rand());
+     area((float)rand());
+  return 0;
+}
