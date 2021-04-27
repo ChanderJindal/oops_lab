@@ -1,7 +1,4 @@
 #include <bits/stdc++.h>
-#define u unsigned
-#define ll long long
-#define pi 3.141592653589793238
 using namespace std;
 /*
 a.  Overload + operator to carry out the concatenation of strings.
@@ -34,7 +31,12 @@ public:
             s1[i] = s1[i] + 'A' - 'a';
     }
     sentense operator + (string s){
-    s1 += s;
+    string real_one = "";
+    for(int i =0;i<s1.length();i++)
+        real_one = real_one + s1[i];
+    for(int i =0;i<s.length();i++)
+        real_one = real_one + s[i];
+        s1 = real_one;
     }
 sentense operator = (string s){
     s1 = s;
@@ -78,6 +80,10 @@ for(int i = 0; i< string_size;i++){
     temp++;
     ans +=  char(temp);
 }
+cout<<"~~~~~~~~~~~~~~~~~~~~~"<<endl;
+cout<<ans<<endl;
+cout<<"~~~~~~~~~~~~~~~~~~~~~"<<endl;
+
 return ans;
 }
 
@@ -103,21 +109,27 @@ s.display();
 s.toupper();
 s.display();
 */
-/*
+
 // 100% Random
+
 srand(time(0));
 sentense s ;
-s = random_string_generator(rand()%100);
+string temp;
+temp = random_string_generator(rand()%100);
+s = temp;
 s.display();
-s + random_string_generator(rand()%100);
+temp = random_string_generator(rand()%100);
+s + temp;
 s.display();
-s <= random_string_generator(rand()%100);
+temp = random_string_generator(rand()%100);
+s <= temp;
 s.tolower();
 s.display();
-s = random_string_generator(rand()%100);
+temp = random_string_generator(rand()%100);
+s = temp;
 s.display();
 s.toupper();
 s.display();
-*/
+
 return 0;
 }
