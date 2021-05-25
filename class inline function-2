@@ -1,0 +1,131 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define u unsigned
+#define fast  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define lli long long int
+#define lf long double
+#define mod 1000000007
+#define pi 3.14159
+#define si short int
+#define pb push_back
+#define min_pass 70.00
+using namespace std;
+
+typedef vector<float> VF;
+typedef vector<string> VS;
+
+string random_string_generator(){
+int str_size = rand()%100;
+string s = "";
+while(str_size-->0){
+    char ch = 'a' + rand()%26;
+    s = s + ch;
+}
+s[0] = s[0] + 'A' - 'a';
+return s;
+}
+
+class student{
+string name,branch,roll_no;
+int age;
+char sex;
+VF marks_lst;
+VS sub_lst;
+bool Passed = true;
+public:
+    void give_basic_info(string name,string branch,string roll_no,int age, char sex){
+    this->name = name;
+    this->branch = branch;
+    this->roll_no = roll_no;
+    this->age = age;
+    this->sex = sex;
+    }
+    void get_basic_info(){
+    cout<<"Student "<<name<<" ("<<sex<<"), "<<age<<", "<<branch<<endl;
+    cout<<"______________"<<endl;
+    cout<<roll_no<<endl;
+    }
+    void give_subject_info(VS sub_name,VF sub_marks){
+    sub_lst = sub_name;
+    marks_lst = sub_marks;
+    for(int i = 0 ;i<sub_marks.size();i++){
+        if(sub_marks[i] < 70.00){
+            Passed = false;
+            break;
+        }
+    }
+    }
+    void get_subject_info(){
+    cout<<"The Student has received the following scores :- "<<endl;
+    cout<<"______________"<<endl;
+
+    cout<<"Score -> Subject -> Status"<<endl;
+    double total = 0;
+    for(int i = 0 ; i < 5; i++){
+        cout<<"______________"<<endl;
+        cout<<marks_lst[i]<<" -> "<<sub_lst[i];
+        if(marks_lst[i] < min_pass){
+            cout<<" -> Failed "<<endl;
+        }else{
+        cout<<" -> Passed "<<endl;
+        }
+        total += marks_lst[i];
+    }
+    cout<<"______________"<<endl;
+    cout<<"Thus, has a Total Score of "<<total<<" with "<<total/5<<" % Marks"<<endl;
+    if(total/5 < min_pass){
+        cout<<"The Student has Failed Overall"<<endl;
+    }else{
+        cout<<"The Student has Passed Overall"<<endl;
+    }
+    }
+};
+
+void exp_4(){
+student st_1;
+string name = random_string_generator(),branch = random_string_generator();
+VS sub_lst;
+int age = rand()%25;
+VF sub_marks;
+for(int i = 0 ; i<5;i++){
+    sub_lst.pb(random_string_generator());
+    sub_marks.pb(float( (rand()%10000) ) /100.0);
+}
+char sex;
+int temp = rand()%3;
+if(temp == 0)
+    sex = 'M';
+if(temp == 1)
+    sex = 'F';
+if(temp == 2)
+    sex = 'T';
+    string r_n = "1";
+for(int i = 0 ; i < 9 ; i++){
+    temp = rand()%10;
+    char ch = '0' + temp;
+    r_n = r_n + ch;
+}
+cout<<"Values Given are :- "<<endl;
+cout<<"Name -> "<<name<<endl;
+cout<<"Roll No. -> "<<r_n<<endl;
+cout<<"Branch -> "<<branch<<endl;
+cout<<"Age -> "<<age<<endl;
+cout<<"Sex -> "<<sex<<endl;
+cout<<"____________"<<endl;
+cout<<"Subject Name -> Subject Marks"<<endl;
+for(int i = 0 ; i<5;i++){
+cout<<sub_lst[i]<<" -> "<<sub_marks[i]<<endl;
+cout<<"____________"<<endl;
+}
+cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+st_1.give_basic_info(name,branch,r_n,age,sex);
+st_1.give_subject_info(sub_lst,sub_marks);
+st_1.get_basic_info();
+st_1.get_subject_info();
+}
+
+int main(){
+srand(time(0));
+exp_4();
+    return 0;
+}
