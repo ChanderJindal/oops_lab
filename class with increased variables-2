@@ -49,7 +49,7 @@ public:
     sub_lst = sub_name;
     marks_lst = sub_marks;
     for(int i = 0 ;i<sub_marks.size();i++){
-        if(sub_marks[i] < 70.00){
+        if(sub_marks[i] < min_pass){
             Passed = false;
             break;
         }
@@ -59,11 +59,11 @@ public:
     cout<<"The Student has received the following scores :- "<<endl;
     cout<<"______________"<<endl;
 
-    cout<<"Score -> Subject -> Status"<<endl;
+    cout<<"Subject -> Score -> Status"<<endl;
     double total = 0;
     for(int i = 0 ; i < 5; i++){
         cout<<"______________"<<endl;
-        cout<<marks_lst[i]<<" -> "<<sub_lst[i];
+        cout<<sub_lst[i]<<" -> "<<marks_lst[i];
         if(marks_lst[i] < min_pass){
             cout<<" -> Failed "<<endl;
         }else{
