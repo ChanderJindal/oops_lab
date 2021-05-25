@@ -7,6 +7,8 @@
 #define mod 1000000007
 #define pi 3.14159
 #define si short int
+#define pb push_back
+#define min_pass 70.00
 using namespace std;
 
 typedef vector<float> VF;
@@ -28,6 +30,7 @@ string name,branch,subject_list[5],roll_no;
 int age;
 float subject_marks[5];
 char sex;
+bool Passed = true;
 public:
     void give_basic_info(string name,string branch,string roll_no,int age, char sex){
     this->name = name;
@@ -45,17 +48,24 @@ public:
     for(int i = 0 ; i < 5; i++){
     subject_list[i] = sub_name[i];
     subject_marks[i] = sub_marks[i];
+            if(sub_marks[i] < min_pass)
+            Passed = false;
     }
     }
 
     void get_subject_info(){
     cout<<"The Student has received the following scores :- "<<endl;
     cout<<"______________"<<endl;
-    cout<<"Subject -> Score"<<endl;
+    cout<<"Subject -> Score -> Status"<<endl;
     double total = 0;
     for(int i = 0 ; i < 5; i++){
         cout<<"______________"<<endl;
-        cout<<subject_list[i]<<" -> "<<subject_marks[i]<<endl;
+        cout<<subject_list[i]<<" -> "<<subject_marks[i];
+        if(subject_marks[i] < min_pass){
+            cout<<" -> Failed "<<endl;
+        }else{
+        cout<<" -> Passed "<<endl;
+        }
         total += subject_marks[i];
     }
     cout<<"______________"<<endl;
