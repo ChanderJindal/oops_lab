@@ -1,0 +1,41 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define u unsigned
+#define fast  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define lli long long int
+#define lf long double
+#define mod 1000000007
+#define pi 3.14159
+#define si short int
+using namespace std;
+
+typedef vector<float> VF;
+typedef vector<string> VS;
+
+bool prime_or_not(lli n){
+if(n < 2)
+    return false;
+for(lli i = 2 ; i <= sqrt(n) ; i++)
+    if(n%i==0)
+    return false;
+return true;
+}
+void exp_1(){ // prime one
+cout<<"This is EXP 01 "<<endl;
+cout<<"Write a program to find whether a number is prime or not."<<endl;
+cout<<"__________________________"<<endl;
+lli n = rand();
+cout<<"The given Number ("<<n<<") is ";
+if(prime_or_not(n))
+    cout<<"Prime"<<endl;
+else
+    cout<<"Not-Prime"<<endl;
+return;
+}
+
+int main(){
+srand(time(0));
+exp_1();
+    return 0;
+}
+
