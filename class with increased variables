@@ -28,8 +28,6 @@ string name,branch,subject_list[5],roll_no;
 int age;
 float subject_marks[5];
 char sex;
-VF marks_lst;
-VS sub_lst;
 public:
     void give_basic_info(string name,string branch,string roll_no,int age, char sex){
     this->name = name;
