@@ -1,0 +1,45 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define u unsigned
+#define fast  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define lli long long int
+#define lf long double
+#define mod 1000000007
+#define pi 3.14159
+#define si short int
+#define pb push_back
+#define min_pass 70.00
+using namespace std;
+
+typedef vector<float> VF;
+typedef vector<string> VS;
+
+void power(int n , int m = 2){
+double val = pow(n,m);
+cout<<"The Value of "<<n<<"^"<<m<<" is "<<val<<endl;
+return;
+}
+
+void exp_6(){
+cout<<"This is EXP 06"<<endl;
+cout<<"____________"<<endl;
+cout<<"To create a function power to raise a number m to a power n."<<endl;
+cout<<"The function takes double value for m and integer value for n."<<endl;
+cout<<" Use default value for n to make the function."<<endl;
+cout<<"Calculate the squares when this argument is omitted."<<endl;
+cout<<"____________"<<endl;
+int temp1 = rand()%10,temp2 = rand()%10;
+cout<<"For Values "<<temp1<<", "<<temp2<<" the Function gives"<<endl;
+power(temp1,temp2);
+cout<<"____________"<<endl;
+temp1 = rand()%20;
+cout<<"Whereas for the sole value of "<<temp1<<" the Function gives"<<endl;
+power(temp1);
+return;
+}
+
+int main(){
+srand(time(0));
+exp_6();
+    return 0;
+}
