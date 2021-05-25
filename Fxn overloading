@@ -1,0 +1,56 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define u unsigned
+#define fast  ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define lli long long int
+#define lf long double
+#define mod 1000000007
+#define pi 3.14159
+#define si short int
+using namespace std;
+
+typedef vector<float> VF;
+typedef vector<string> VS;
+
+void area(double r){
+double area = pi*pow(r,2);
+cout<<"Area of Circle with Radius "<<r<<" is "<<area<<endl;
+cout<<"______________"<<endl;
+return;
+}
+
+void area(int l , int b){
+double area = l*b;
+cout<<"Area of Rectangle with Length "<<l<<" and Breadth "<<b<<" is "<<area<<endl;
+cout<<"______________"<<endl;
+return;
+}
+void area(double b , double h){
+double area = (b*h)*0.5;
+cout<<"Area of Triangle with Base "<<b<<" and Height "<<h<<" is "<<area<<endl;
+cout<<"______________"<<endl;
+return;
+}
+
+void exp_3(){
+cout<<"This is EXP 03 "<<endl;
+cout<<"Using the concept of function overloading, write function for calculating area of triangle, circle and rectangle."<<endl;
+cout<<"__________________________"<<endl;
+int temp1 = rand()%100,temp2;
+cout<<"For Area of Circle with radius "<<temp1<<" as per the function is :- "<<endl;
+area(temp1);
+temp1 = rand()%100,temp2=rand()%100;
+cout<<"For Area of Rectangle with Length "<<temp1<<" and Breadth "<<temp2<<" as per the function is :- "<<endl;
+area(temp1,temp2);
+double temp3 = rand()%10000,temp4=rand()%10000;
+cout<<"For Area of Triangle with Base "<<temp3<<" and Height "<<temp4<<" as per the function is :- "<<endl;
+area(temp3,temp4);
+return;
+}
+
+int main(){
+srand(time(0));
+exp_3();
+    return 0;
+}
+
