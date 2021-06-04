@@ -1,0 +1,35 @@
+class Big_Three{
+public:
+int a,b,c;
+    void get_val(int a, int b, int c){
+    this->a = a;
+    this->b = b;
+    this->c = c;
+    }
+    friend bigest();
+};
+
+int bigest(Big_Three val){
+if(val.a >= val.b){
+    return (val.a>val.c) ? val.a:val.c;
+}
+ return (val.b>val.c) ? val.b:val.c;
+}
+
+void exp_09(){
+cout<<"This is EXP 09"<<endl;
+cout<<"____________"<<endl;
+cout<<"Write a program to find the biggest of three number using Friend Function."<<endl;
+cout<<"____________"<<endl;
+int a =rand() ,b=rand(),c=rand();
+cout<<"The Three Numbers are "<<a<<" "<<b<<" "<<c<<" chosen by rand() function"<<endl;
+Big_Three var;
+var.get_val(a,b,c);
+cout<<"As per the Function made the Largest of them is :"<<bigest(var)<<endl;
+}
+
+int main(){
+srand(time(0));
+exp_09();
+    return 0;
+}
