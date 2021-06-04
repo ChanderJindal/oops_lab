@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+#define u unsigned
+#define lli long long int
+using namespace std;
+
+class Fibonacci{
+u lli first,second;
+public:
+    void starting(u lli first, u lli second){
+    this->first = first;
+    this->second = second;
+    }
+    void copy_starting(Fibonacci & var){
+        this->first = var.first;
+        this->second = var.second;
+    }
+    u lli find_the_n(int n){
+        if(n < 2)
+            return 0;
+        if (n < 4)
+            return 1;
+    for(int  i = 3;i<= n ;i++){
+        first += second;
+        swap(first,second);
+    }
+    return second;
+    }
+    void all_n(int n){
+    first = 0,second =1;
+    cout<<"0 1 ";
+        for(int  i = 3;i<= n ;i++){
+        first += second;
+        swap(first,second);
+        cout<<second<<" ";
+    }
+    cout<<endl;
+    }
+
+};
+
+void exp_08(){
+cout<<"This is EXP 08"<<endl;
+cout<<"____________"<<endl;
+cout<<"Write a program to generate a Fibonacci series using Copy Constructor."<<endl;
+cout<<"____________"<<endl;
+Fibonacci var,war;
+var.starting(0,1);
+war = var;
+int n = rand()%101;
+cout<<"For a Standard Fibonacci Series, First Term = 0 , Second Term = 1, the "<<n<<"th Term as per the Function is ";
+cout<<war.find_the_n(n)<<endl;
+cout<<"____________________________________"<<endl;
+war.all_n(n);
+
+}
+
+int main(){
+srand(time(0));
+exp_08();
+    return 0;
+}
