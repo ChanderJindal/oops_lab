@@ -3,14 +3,14 @@
 using namespace std;
 
 class Big_Three{
-public:
 int a,b,c;
+public:
     void get_val(int a, int b, int c){
     this->a = a;
     this->b = b;
     this->c = c;
     }
-    friend bigest();
+    friend int bigest(Big_Three val);
 };
 
 int bigest(Big_Three val){
