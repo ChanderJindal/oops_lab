@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+#define u unsigned
+#define lli long long int
+
+using namespace std;
+
+class two{
+int a, b;
+public:
+    void get(int a, int b){
+    this->a = a;
+    this->b = b;
+    }
+friend inline int larger(two var);
+friend void display(two var);
+friend void sum(two var);
+void operator ++(){
+a = a+10;
+b = b+10;
+}
+void operator --(){
+a = a-15;
+b = b-15;
+}
+};
+
+inline int larger(two var){
+return (var.a>var.b) ? var.a:var.b;
+}
+
+void exp_11(){
+cout<<"This is EXP 11"<<endl;
+cout<<"____________"<<endl;
+cout<<"Write a program to find the sum of two numbers declared in a class and display the numbers and sum using friend class."<<endl;
+cout<<"____________"<<endl;
+int a = rand(), b = rand();
+two var;
+var.get(a,b);
+cout<<"Two chosen numbers are "<<a<<" "<<b<<". And as per the function "<<endl;
+display(var);
+sum(var);
+
+}
+
+void sum(two var){
+cout<<"The Sum is : "<<(u lli)var.a + (u lli)var.b<<endl;
+return;
+}
+
+void display(two var){
+cout<<"First Value is : "<<var.a<<"| Second Value is : " <<var.b<<endl;
+return;
+}
+
+int main(){
+srand(time(0));
+exp_11();
+    return 0;
+}
