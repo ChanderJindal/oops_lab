@@ -1,0 +1,86 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+Create a class called LIST with two pure virtual function store () and retrieve (). To store a value call store and to
+retrieve call retrieve function. Derive two classes stack and queue from it and override store and retrieve.
+*/
+class List_with_class{
+    vector <int> vect;
+public:
+     virtual void store(int val){
+        vect.push_back(val);
+    }
+    virtual void retrieve(){
+        if(vect.size() == 0){
+            cout<<-1<<endl;
+            return;
+        }
+    int val = rand()%vect.size();
+    cout<<vect[val]<<endl;
+    vect.erase(vect.begin()+val);
+    return ;
+    }
+};
+class stack_with_class : public List_with_class{
+public:
+    stack<int> sta;
+void store(int val){
+    sta.push(val);
+}
+void retrieve(){
+cout<<sta.top()<<endl;
+sta.pop();
+return ;
+}
+};
+
+class queue_with_class : public List_with_class{
+public:
+    queue<int> que;
+void store(int val){
+      que.push(val);
+}
+void retrieve(){
+cout<<que.front()<<endl;
+que.pop();
+return ;
+}
+};
+
+
+int main(){
+srand(time(0));
+int n = rand()%10;
+cout<<"For "<<n<<" elements as following the stack and queue classes will be called :"<<endl;
+List_with_class lst;
+stack_with_class st;
+queue_with_class que;
+
+for(int i = 0 ;i<n;i++){
+    int val = rand();
+    lst.store(val);
+    st.store(val);
+    que.store(val);
+    cout<<val<<" ";
+}
+cout<<endl;
+cout<<"_______________________"<<endl;
+cout<<"STORAGE COMPLETE"<<endl;
+cout<<"_______________________"<<endl;
+cout<<"From List (Original class)"<<endl;
+for(int i = 0;i<n;i++){
+    cout<<"Element #"<<i+1<<" -> "; lst.retrieve();
+}
+cout<<"_______________________"<<endl;
+cout<<"From Stack (Derived class)"<<endl;
+for(int i = 0;i<n;i++){
+    cout<<"Element #"<<i+1<<" -> "; st.retrieve();
+}
+cout<<"_______________________"<<endl;
+cout<<"From Queue (Derived class)"<<endl;
+for(int i = 0;i<n;i++){
+    cout<<"Element #"<<i+1<<" -> "; que.retrieve();
+}
+return 0;
+}
