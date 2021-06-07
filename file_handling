@@ -1,0 +1,67 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+char* random_string_generator(int max_size){
+int string_size = rand()%max_size;
+char* ans = new char[string_size+1];
+for(int i = 0; i< string_size;i++){
+ int temp = rand()%127;
+ if(temp == 10)
+    temp++;
+    ans +=  char(temp);
+}
+cout<<"~~~~~~~~~~~~~~~~~~~~~"<<endl;
+cout<<ans<<endl;
+cout<<"~~~~~~~~~~~~~~~~~~~~~"<<endl;
+return ans;
+}
+class student{
+public:
+    char* name;
+    int age,height_cm;
+    float weight_N;
+    char sex;
+void file_write(){
+FILE* file1;
+file1 = fopen("student.txt","w");
+fprintf(file1,"Student %s (%c). \nWeighs %f Newton with Height of %d cm is %d Years old", name,sex,weight_N,height_cm,age);
+fclose(file1);
+}
+void give_info(char* name, int age, int height_cm, float weight_N , char sex){
+this->name = name;
+this->age = age;
+this->height_cm = height_cm;
+this->weight_N = weight_N;
+this->sex = sex;
+file_write();
+}
+void display(){
+cout<<"Student " << name << '(' << sex <<')' <<".\nWeighs " << weight_N << " Newton and has a Height of " <<height_cm<< " cm is " << age<< " Years old.";
+cout<<"\nFrom the File "<<endl;
+FILE* file1;
+file1 = fopen("student.txt","r");
+char ch;
+while( (ch = fgetc(file1)) != EOF )
+printf("%c",ch);
+fclose(file1);
+cout<<"\nEnd of file Reading"<<endl;
+}
+};
+int main(){
+    srand(time(0));
+    student st;
+    char* abc = random_string_generator(20);
+    int age = (rand()%20 + 5) , height = (rand()%30 + 100);
+    float weight = (float)(rand()%50 + 50)  + (float) (rand()%100)/100.0;
+    char sex;
+    int temp = rand()%3;
+    if(temp == 0)
+        sex = 'M';
+    if(temp == 1)
+        sex = 'F';
+    else
+        sex = 'T';
+    st.give_info(abc,age,height,weight,sex);
+    st.display();
+    return 0;
+}
