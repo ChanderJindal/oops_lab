@@ -1,0 +1,41 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+class arr_exc{
+vector<int> vect;
+int sz;
+public:
+void creating_array(){
+sz = (rand()%100) + 1;
+vect.reserve(sz);
+for(int i = 0 ;i < sz ; i++)
+    vect.push_back(rand());
+cout<<"An array of size "<<sz<<" is created with random values"<<endl;
+}
+void idx_val(int idx){
+try{
+if(idx < sz){
+        cout<<"vect["<<idx<<"] = "<<vect[idx]<<endl;
+}else{
+    throw idx;
+}
+}
+catch(int n){
+cout<<"Error! The following Index exceeds the Limit : "<<n<<".\nPlease keep the index below "<<sz<<endl;
+}
+}
+
+void testing(){
+cout<<"When trying an Index lower than "<<sz<<endl;
+idx_val(rand()%sz);
+cout<<"When trying an Index higher than "<<sz<<endl;
+idx_val( (rand()%10)+sz);
+}
+};
+int main(){
+srand(time(0));
+arr_exc ae;
+ae.creating_array();
+ae.testing();
+    return 0;
+}
